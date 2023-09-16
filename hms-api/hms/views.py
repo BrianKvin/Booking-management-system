@@ -28,7 +28,7 @@ class PhysioView(APIView):
     #     serializer = PhysioSerializer(physio)
     #     return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         physio = Physio.objects.get(pk=pk)
         serializer = PhysioSerializer(physio, data=request.data)
         if serializer.is_valid():
@@ -60,7 +60,7 @@ class PatientView(APIView):
     #     serializer = PatientSerializer(patient)
     #     return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         patient = Patient.objects.get(pk=pk)
         serializer = PatientSerializer(patient, data=request.data)
         if serializer.is_valid():
@@ -87,7 +87,7 @@ class ServiceView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         patient = Patient.objects.get(pk=pk)
         serializer = PatientSerializer(patient, data=request.data)
         if serializer.is_valid():
@@ -114,7 +114,7 @@ class BillingView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         patient = Billing.objects.get(pk=pk)
         serializer = BillingSerializer(patient, data=request.data)
         if serializer.is_valid():
@@ -135,13 +135,13 @@ class BookingView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = ServiceSerializer(data=request.data)
+        serializer = BookingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         patient = Booking.objects.get(pk=pk)
         serializer = BookingSerializer(patient, data=request.data)
         if serializer.is_valid():
