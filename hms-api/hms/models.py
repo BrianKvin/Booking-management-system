@@ -36,12 +36,20 @@ class Booking(models.Model):
                     ('afternoon', 'Afternoon'),
                     ('evening', 'Evening')]
 
+    STATUS_CHOICES = (
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+        ('pending', 'Pending')
+    )
+
     physio = models.ForeignKey(Physio, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     resrv_date = models.DateField()
     resrv_time = models.CharField(
         max_length=10, choices=TIME_CHOICES, default='morning')
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES, DEFAULT='active')
 
     def __repr__(self):
         return f'{self.physio} {self.patient} {self.service} {self.resrv_date} {self.resrv_time}'
