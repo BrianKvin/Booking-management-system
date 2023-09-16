@@ -16,7 +16,6 @@ class PhysioView(APIView):
         serializer = PhysioSerializer(physio, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-# CREATE a new physio
     def post(self, request):
         serializer = PhysioSerializer(data=request.data)
         if serializer.is_valid():
@@ -24,13 +23,11 @@ class PhysioView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # GET a specific physio by ID
-    def retrieve(self, request, pk):
-        physio = Physio.objects.get(pk=pk)
-        serializer = PhysioSerializer(physio)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    # def retrieve(self, request, pk):
+    #     physio = Physio.objects.get(pk=pk)
+    #     serializer = PhysioSerializer(physio)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # UPDATE a specific physio by ID
     def update(self, request, pk):
         physio = Physio.objects.get(pk=pk)
         serializer = PhysioSerializer(physio, data=request.data)
@@ -39,8 +36,7 @@ class PhysioView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # DELETE a specific physio by ID
-    def destroy(self, request, pk):
+    def delete(self, request, pk):
         physio = Physio.objects.get(pk=pk)
         physio.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -52,7 +48,6 @@ class PatientView(APIView):
         serializer = PatientSerializer(patient, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # CREATE a new patient
     def post(self, request):
         serializer = PatientSerializer(data=request.data)
         if serializer.is_valid():
@@ -60,13 +55,11 @@ class PatientView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # GET a specific patient by ID
-    def retrieve(self, request, pk):
-        patient = Patient.objects.get(pk=pk)
-        serializer = PatientSerializer(patient)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    # def retrieve(self, request, pk):
+    #     patient = Patient.objects.get(pk=pk)
+    #     serializer = PatientSerializer(patient)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # UPDATE a specific patient by ID
     def update(self, request, pk):
         patient = Patient.objects.get(pk=pk)
         serializer = PatientSerializer(patient, data=request.data)
@@ -75,8 +68,7 @@ class PatientView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # DELETE a specific patient by ID
-    def destroy(self, request, pk):
+    def delete(self, request, pk):
         patient = Patient.objects.get(pk=pk)
         patient.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -88,6 +80,26 @@ class ServiceView(APIView):
         serializer = ServiceSerializer(service, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request):
+        serializer = ServiceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, pk):
+        patient = Patient.objects.get(pk=pk)
+        serializer = PatientSerializer(patient, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        patient = Patient.objects.get(pk=pk)
+        patient.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class BillingView(APIView):
     def get(self, request):
@@ -95,9 +107,49 @@ class BillingView(APIView):
         serializer = BillingSerializer(bill, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request):
+        serializer = BillingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, pk):
+        patient = Billing.objects.get(pk=pk)
+        serializer = BillingSerializer(patient, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        patient = Billing.objects.get(pk=pk)
+        patient.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class BookingView(APIView):
     def get(self, request):
         booking = Booking.objects.all()
         serializer = BookingSerializer(booking, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = ServiceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, pk):
+        patient = Booking.objects.get(pk=pk)
+        serializer = BookingSerializer(patient, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        patient = Booking.objects.get(pk=pk)
+        patient.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
