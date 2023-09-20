@@ -42,14 +42,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return user
 
 
-# {
-#     "email": "patient8@patient.com",
-#     "password": "patient",
-#     "is_patient": "True",
-#     "phone_number": "0770416102"
-# }
-
-
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:

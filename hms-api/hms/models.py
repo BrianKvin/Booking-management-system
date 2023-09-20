@@ -8,7 +8,7 @@ class Physio(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.user.username}'
+        return f'{self.user.first_name} {self.user.last_name}'
 
     @admin.display(ordering='user__first_name')
     def first_name(self):
@@ -32,7 +32,7 @@ class Patient(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.user.username}'
+        return f'{self.user.first_name} {self.user.last_name}'
 
     @admin.display(ordering='user__first_name')
     def first_name(self):
@@ -51,12 +51,22 @@ class Patient(models.Model):
         return self.user.is_patient
 
 
+class Treatment(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    physio = models.ForeignKey(Physio, on_delete=models.CASCADE)
+    treatment = models.TextField()
+    treatment_date = models.DateField()
+
+    def __str__(self) -> str:
+        return f'{self.treatment} {self.patient}'
+
+
 class Service(models.Model):
     service = models.CharField(max_length=100)
     cost = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __repr__(self):
-        return f'{self.service} {self.cost}'
+    def __str__(self):
+        return f'{self.service}'
 
 
 class Booking(models.Model):
@@ -78,8 +88,8 @@ class Booking(models.Model):
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='booked')
 
-    def __repr__(self):
-        return f'{self.physio} {self.patient} {self.service} {self.resrv_date} {self.resrv_time}'
+    def __str__(self):
+        return f'{self.patient} - {self.service}'
 
 
 class Billing(models.Model):
