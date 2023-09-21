@@ -1,16 +1,12 @@
-// import './App.css'
-// import Router from './routes/Router'
-import Header from "./components/navbar/Navbar"
-import Home from "./pages/home/Home"
-import Footer from "./components/footer/Footer"
+
+import Router from './routes/Router'
+
 
 function App() {
 
   return (
     <>
-      <Header />
-      <Home />
-      <Footer />
+      <Router />
     </>
   )
 }

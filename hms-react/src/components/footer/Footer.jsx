@@ -20,7 +20,7 @@ const Footer = () => {
                     </div>
                     <div className="footer-text">
                         <h6>Contact Us</h6>
-                        <h4>+01 123 456 7890</h4>
+                        <h4>(888) 4421-1238-32</h4>
                     </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
@@ -36,7 +36,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-md-3 col-sm-6">
-                <h2>Quick Links</h2>
+                <h2>Services</h2>
                     <ul>
                         <li><a href="#">Physiology Care</a></li>
                         <li><a href="#">Screening</a></li>

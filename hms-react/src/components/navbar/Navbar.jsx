@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
 
 
 // import logo from '../../assets/one-medical.svg'
@@ -22,7 +23,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link className="active">Home</Nav.Link>
-            <NavDropdown title="Pages" id="basic-nav-dropdown">
+            <NavDropdown title="Doctors" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Services" id="basic-nav-dropdown">
@@ -38,10 +39,11 @@ const Header = () => {
               (+01) 999 888 777
               </Nav.Link>
             <Nav.Link>
-              {/* <Nav.Link to='/loginSignup'>
-                <button>Login</button>
-              </Nav.Link> */}
+              <NavLink to='/loginSignup'>
+                <button onClick={(() => console.log('True'))}>Login</button>
+              </NavLink>
             </Nav.Link>
+            {/* <NavLink to='/loginSignup'>Login</NavLink> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
