@@ -1,0 +1,42 @@
+footer.logo {
+    width: 50px;
+    height: auto;
+    margin: 15px 0px;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+footer .footer-contact {
+    display: flex;
+}
+
+footer .footer-contact .footer-icon {
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+    line-height: 40px;
+    border: 1px solid orange;
+    box-sizing: border-box;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+footer .footer-contact .footer-icon svg {
+    color: #fff;
+    text-align: center;
+    padding-left: 10px;
+}
+
+footer .footer-contact h6 {
+    color: orange;
+    font-size: 16px;
+}
+
+footer .footer-contact h4 {
+    color: blue;
+    font-size: 18px;
+    margin-top: 10px;
+}
