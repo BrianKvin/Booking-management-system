@@ -6,6 +6,8 @@ import Contact from '../pages/contact/Contact'
 import Doctors from '../pages/doctors/Doctors'
 import DoctorDetails from '../pages/doctorDetails/DoctorDetails'
 import Landing from '../pages/landingPage/Landing'
+import Register from '../pages/forms/bookingForms/Register'
+import TreatmentForm from '../pages/forms/treatmentForm/TreatmentForm'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const Router = () => {
@@ -19,9 +21,11 @@ const Router = () => {
           <Route path='/home/doctors/:id' element={<DoctorDetails />} />
         </Route>
         <Route path='/loginSignup' element={<LoginSignup />}></Route>
-        <Route path='/register' element={<LoginSignup />}></Route>
+        
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/services' element={<Services />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+        <Route path='/treatment' element={<TreatmentForm />}></Route>
       </Routes>
     
     </BrowserRouter>
