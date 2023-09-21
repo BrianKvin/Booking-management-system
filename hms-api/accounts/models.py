@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
-    def create_user(self, email, password, phone_number, **extra_fields):
+    def create_user(self, email, phone_number, first_name=None, last_name=None, password=None, is_physio=False, is_patient=False):
         """
         Create and save a user with the given email and password.
         """
@@ -24,39 +24,42 @@ class UserManager(BaseUserManager):
             raise ValueError('Phone number must be set')
 
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = self.model(email=email, phone_number=phone_number, first_name=first_name,
+                          last_name=last_name, is_physio=is_physio, is_patient=is_patient)
         user.set_password(password)
         user.save()
         return user
 
-    def create_patient(self, email, password, phone_number, **extra_fields):
+    def create_patient(self, email, phone_number, first_name=None, last_name=None, password=None, is_physio=False, is_patient=False):
         """
         Create and save a user with is_patient status
         """
-        extra_fields.setdefault('is_patient', True)
-
-        user = self.create_user(email, password, phone_number, **extra_fields)
+        user = self.create_user(email=email, phone_number=phone_number, first_name=first_name, password=password,
+                                last_name=last_name, is_physio=is_physio, is_patient=is_patient)
+        user.is_patient = True
+        user.save()
         return user
 
-    def create_doctor(self, email, password, phone_number, **extra_fields):
+    def create_physio(self, email, phone_number, first_name=None, last_name=None, password=None, is_physio=False, is_patient=False):
         """
         Create and save a user with is_doctor, is_staff, is_admin status
         """
-        extra_fields.setdefault('is_doctor', True)
-        extra_fields.setdefault('is_admin', True)
-        extra_fields.setdefault('is_staff', True)
-
-        user = self.create_user(email, password, phone_number, **extra_fields)
+        user = self.create_user(email=email, phone_number=phone_number, first_name=first_name, password=password,
+                                last_name=last_name, is_physio=is_physio, is_patient=is_patient)
+        user.is_physio = True
+        user.is_staff = True
+        user.save()
         return user
 
-    def create_superuser(self, email, password, phone_number, **extra_fields):
+    def create_superuser(self, email, phone_number, password):
         """
         Create and save a user with is_superuser status
         """
-        extra_fields.setdefault("is_staff", True)
-        extra_fields.setdefault("is_superuser", True)
-
-        user = self.create_user(email, password, phone_number, **extra_fields)
+        user = self.create_user(phone_number=phone_number,
+                                email=email, password=password)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
         return user
 
 
@@ -68,9 +71,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=16, validators=[phone_validator])
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    is_doctor = models.BooleanField(default=False)
+    is_physio = models.BooleanField(default=False)
     is_patient = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now)
     update_at = models.DateTimeField(default=timezone.now)
 
     USERNAME_FIELD = 'email'

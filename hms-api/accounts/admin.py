@@ -7,6 +7,6 @@ from .models import User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ['email', 'first_name', 'last_name', 'phone_number', 'is_staff',
-                    'is_superuser', 'is_active', 'is_patient', 'is_doctor']
+                    'is_superuser', 'is_active', 'is_patient', 'is_physio']
 
     list_per_page = 10
