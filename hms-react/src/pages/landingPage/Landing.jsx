@@ -17,6 +17,9 @@ const Landing = () => {
           </div>
 
           <div className="col-lg-6 col-md-6">
+            <button><a href='#'>Login</a></button>
+          </div>
+          <div className='col-lg-6 col-md-6'>
             <div className="header-box">
               <img src={headerimg} />
               {/* <FontAwesomeIcon icon={faSquare} /> */}
