@@ -1,4 +1,4 @@
-nav {
+/* nav {
   background-color: #fff;
   width: 100%;
   height: auto;
@@ -15,10 +15,10 @@ nav .navbar-nav a {
   letter-spacing: 1px;
   margin-right: 10px;
   font-size: 17px;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
 }
 
-nav .navbar a:hover ,
+nav .navbar a:hover,
 nav .navbar-nav a:focus {
   color: var(--orange-color) !important;
 }
@@ -40,7 +40,7 @@ nav .navbar-nav button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 nav .navbar-nav button span {
@@ -80,13 +80,15 @@ nav .navbar-nav button:hover {
   position: relative;
 }
 
-[type-button]:not(:disabled), [type-reset]:not(:disabled), [type-submit]:not(:disabled), button:not(:disabled) {
+[type-button]:not(:disabled),
+[type-reset]:not(:disabled),
+[type-submit]:not(:disabled),
+button:not(:disabled) {
   cursor: pointer;
   background-color: var(--btn-color);
   border: 1px solid var(--btn-color);
   border-radius: 0px;
 }
-
 
 .navbar-nav .dropdown-menu a:hover {
   color: var(--btn-color) !important;
@@ -102,23 +104,18 @@ nav .navbar-nav button:hover {
   background-color: var(--main-color);
 } */
 
-@media only screen and (max-width : 992px) {
-  nav .navbar-na .dropdown-menu{
-      width: 100%;
+@media only screen and (max-width: 992px) {
+  nav .navbar-na .dropdown-menu {
+    width: 100%;
   }
   nav .navbar-nav button {
-      margin-top: 0px;
+    margin-top: 0px;
   }
-}
+} */
 
 /* nav #basic-nav-dropdown:hover .dropdown-menu {
   opacity: 1 !important;
 } */
-
-
-
-
-
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

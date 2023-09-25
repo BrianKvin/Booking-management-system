@@ -1,4 +1,4 @@
-import "../loginSignup/LoginSignup.css";
+import styles from "./register.module.css";
 import user_icon from "../../assets/person.png";
 import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
@@ -46,13 +46,13 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <div className="text">Register</div>
-        <div className="underline"></div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.text}>Register</div>
+        <div className={styles.underline}></div>
       </div>
-      <div className="inputs">
-        <div className="input">
+      <div className={styles.inputs}>
+        <div className={styles.input}>
           <img src={user_icon} alt="" />
           <input
             type="text"
@@ -61,22 +61,26 @@ const Register = () => {
           />
         </div>
 
-        <div className="input">
+        <div className={styles.input}>
           <img src={user_icon} alt="" />
           <input type="text" placeholder="LastName" {...register("lastName")} />
         </div>
 
-        <div className="input">
+        <div className={styles.input}>
           <img src={user_icon} alt="" />
           <input type="text" placeholder="Mobile" {...register("phone")} />
         </div>
 
-        <div className="input">
+        <div className={styles.input}>
           <img src={email_icon} alt="" />
-          <input type="email" placeholder="Email Id" {...register("email")} />
+          <input
+            type="email"
+            placeholder="email@email.com"
+            {...register("email")}
+          />
         </div>
 
-        <div className="input">
+        <div className={styles.input}>
           <img src={password_icon} alt="" />
           <input
             type="password"
@@ -86,12 +90,12 @@ const Register = () => {
         </div>
       </div>
 
-      <div className="forgot-password">
+      <div className={styles.forgotpassword}>
         Already Have an account? <Link to={"/login"}>Login</Link>
       </div>
 
-      <div className="submit-container">
-        <div className={"submit"} onClick={handleSubmit(onSubmit)}>
+      <div className={styles.submitcontainer}>
+        <div className={styles.submit} onClick={handleSubmit(onSubmit)}>
           Sign Up
         </div>
       </div>

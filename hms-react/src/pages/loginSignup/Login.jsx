@@ -1,4 +1,4 @@
-import "./LoginSignup.css";
+import styles from "./login.module.css";
 import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
 import { useForm } from "react-hook-form";
@@ -6,7 +6,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
-import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,13 +34,14 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <div className="text">Login</div>
-        <div className="underline"></div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.text}>Login</div>
+        <div className={styles.underline}></div>
       </div>
-      <div className="inputs">
-        <div className="input">
+
+      <div className={styles.inputs}>
+        <div className={styles.input}>
           <img src={email_icon} alt="" />
           <input
             type="email"
@@ -51,7 +51,7 @@ const Login = () => {
           {errors.email && <span>This field is required</span>}
         </div>
 
-        <div className="input">
+        <div className={styles.input}>
           <img src={password_icon} alt="" />
           <input
             type="password"
@@ -61,16 +61,16 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="forgot-password">
+      <div className={styles.forgotpassword}>
         Lost Password? <span>Click here</span>
       </div>
 
-      <div className="forgot-password">
+      <div className={styles.forgotpassword}>
         Need an account? <Link to={"/register"}>Register Here</Link>
       </div>
 
-      <div className="submit-container">
-        <div className={"submit"} onClick={handleSubmit(onSubmit)}>
+      <div className={styles.submitcontainer}>
+        <div className={styles.submit} onClick={handleSubmit(onSubmit)}>
           Login
         </div>
       </div>
