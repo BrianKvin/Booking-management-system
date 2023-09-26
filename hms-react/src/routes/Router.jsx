@@ -9,6 +9,7 @@ import TreatmentForm from "../pages/forms/treatmentForm/TreatmentForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/loginSignup/Login";
 import Register from "../pages/register/Register";
+import BookingForm from "../pages/forms/bookingForms/BookingForm";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="/home/doctors" element={<Doctors />} />
           <Route path="/home/doctors/:id" element={<DoctorDetails />} />
           <Route path="/home/treatment" element={<TreatmentForm />} />
+          <Route path="/home/booking" element={<BookingForm />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

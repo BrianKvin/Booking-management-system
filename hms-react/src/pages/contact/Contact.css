@@ -1,68 +1,33 @@
-.contactUs-wrapper {
-    padding: 120px 0;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  background-color: #eeee;
 }
 
-.single-contact {
-    min-height: 171px;
-    background: #fff;
-    box-shadow: 0 6px 26px rgb(0 0 0 / 6%);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 0 35px;
-    transition: .5s;
+* {
+  box-sizing: border-box;
 }
 
-.single-contact:hover {
-    transform: translateY(-10px);
+form {
+  display: block;
+  background-color: #dddd;
+  box-shadow: 1px 1px 2px #dddd;
+  margin: 40px auto;
+  max-width: 600px;
+  max-height: 700px;
+  padding: 20px;
 }
 
-.single-contact.icon1:hover .c-icon {
-    color: #fff;
-    background-color: #fc5185;
+form input,
+textarea {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  font-family: "Poppins";
 }
-
-.single-contact.icon2 .c-icon {
-    color: #16D88A;
-    background: #DCF9EE;
-}
-
-.single-contact.icon2:hover .c-icon {
-    background: #16D88A;
-    color: #fff;
-}
-
-.single-contact.icon3 .c-icon {
-    color: #352E94;
-    background: #E1E0EF;
-}
-
-.single-contact.icon3:hover .c-icon {
-    background: #352E94;
-    color: #fff;
-}
-
-.c-icon {
-    width: 70px;
-    height: 70px;
-    text-align: center;
-    line-height: 70px;
-    background: #ffe7ea;
-    display: block;
-    border-radius: 50%;
-    color: #fc5185;
-    font-size: 26px;
-    transition: .5s;
-    margin-right: 60px;
-}
-
-.c-info h4 {
-    font-family: "Josefin Sans",sans-serif;
-}
-
-.c-info p {
-    margin: 0;
-    font-weight: 300;
-    line-height: 26px;
-    color: #999;
+form span {
+  color: rgb(29, 185, 237);
 }

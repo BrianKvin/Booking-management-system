@@ -1,55 +1,46 @@
-import { faEnvelope, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { Col, Container, Row } from 'react-bootstrap';
-import './Contact.css';
-import './Barner'
+import { Form } from "react-bootstrap";
+import "./Contact.css";
+import Button from "react-bootstrap/Button";
 
 const Contact = () => {
-    return (
-        <section className="contactUs-wrapper">
-            <Container>
-                <Row>
-                    <Col md={6} lg={6} xl={4}>
-                        <div className="single-contact icon1">
-                            <div className="c-icon">
-                                <FontAwesomeIcon icon={faHome} />
-                            </div>
-                            <div className="c-info text-start">
-                                <h4>Address</h4>
-                                <p>55 West, 33rd Street</p>
-                                <p>5th Floor, New York</p>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col md={6} lg={6} xl={4}>
-                        <div className="single-contact icon2">
-                            <div className="c-icon">
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </div>
-                            <div className="c-info text-start">
-                                <h4>Email</h4>
-                                <p>info@dentzone.com</p>
-                                <p>email@gmail.com</p>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col md={6} lg={6} xl={4}>
-                        <div className="single-contact icon3">
-                            <div className="c-icon">
-                                <FontAwesomeIcon icon={faPhone} />
-                            </div>
-                            <div className="c-info text-start">
-                                <h4>Phone</h4>
-                                <p>(888) 4421-1238-32</p>
-                                <p>(888) 838-1238-645</p>
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-    );
+  return (
+    <Form>
+      <h1>
+        Contact <span>Here</span>
+      </h1>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Label>Message</Form.Label>
+        <Form.Control
+          name="message"
+          id=""
+          as="textarea"
+          rows={6}
+          placeholder="Type here..."
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+
+      <Button variant="primary" size="sm" active>
+        Send
+      </Button>
+    </Form>
+  );
 };
 
 export default Contact;
