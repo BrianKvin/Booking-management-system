@@ -2,3 +2,17 @@
   height: 250px;
   width: 150px;
 }
+
+.service {
+  margin: 10px;
+}
+
+div.services-container {
+  padding: 20px;
+  justify-content: center;
+}
+
+button.button {
+  /* display: flex; */
+  margin-left: 230px;
+}

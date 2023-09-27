@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button"; // Import Button from react-bootstr
 // import image1 from "../../assets/images/istockphoto-1384499192-612x612.jpg";
 // import image2 from "../../assets/images/pexels-photo-7433148.jpeg";
 // import image3 from "../../assets/images/pexels-photo-8313421.webp";
+import pressure from "../../assets/images/services/blood-pressure-monitor-1749577_640.jpg";
+import istock from "../../assets/images/services/istockphoto-1079107724-612x612.webp";
+import istockphoto from "../../assets/images/services/istockphoto-1452736789-612x612.webp";
 
 const Services = () => {
   // State to manage the list of services
@@ -42,19 +45,27 @@ const Services = () => {
   };
 
   return (
-    <div className="services-container">
-      {services.map((service) => (
-        <Card className="service" style={{ width: "18rem" }} key={service.id}>
-          <Card.Img className="img" variant="top" src={service.image} />
-          <Card.Body>
-            <Card.Title>{service.title}</Card.Title>
-            <Card.Text>{service.text}</Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+    <div>
+      <div className="services-container" style={{ display: "flex" }}>
+        {services.map((service) => (
+          <Card className="service" style={{ width: "18rem" }} key={service.id}>
+            <Card.Img className="img" variant="top" src={service.image} />
+            <Card.Body>
+              <Card.Title>{service.title}</Card.Title>
+              <Card.Text>{service.text}</Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
 
-      {/* Button to add a new service */}
-      <Button variant="primary" size="sm" onClick={addService} active>
+        {/* Button to add a new service */}
+      </div>
+      <Button
+        className="button"
+        variant="primary"
+        size="sm"
+        onClick={addService}
+        active
+      >
         Add Service
       </Button>
     </div>

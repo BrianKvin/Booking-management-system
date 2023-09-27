@@ -1,15 +1,47 @@
+html, body {
+    height: 100%;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+.footer {
+  background-color: #eee;
+  padding: 10px;
+  
+}
+
+  main {
+    flex-grow: 1;
+  }
+
+  /* .level {
+    display: flex;
+  } */
+
+footer.footer {
+  
+}
+
 footer.logo {
     width: 50px;
     height: auto;
-    margin: 15px 0px;
+    display: flex;
+    align-items: center;
 }
-
+.level{
+  
+}
 footer p {
     font-size: 15px;
 }
 
 footer .footer-contact {
     display: flex;
+    margin-top: 40px;
 }
 
 footer .footer-contact .footer-icon {
@@ -22,6 +54,10 @@ footer .footer-contact .footer-icon {
     box-sizing: border-box;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+}
+
+form.email {
+  background-color: #eee;
 }
 
 footer .footer-contact .footer-icon svg {
@@ -39,4 +75,8 @@ footer .footer-contact h4 {
     color: blue;
     font-size: 18px;
     margin-top: 10px;
+}
+
+img.footer-logo {
+  transition: none;
 }

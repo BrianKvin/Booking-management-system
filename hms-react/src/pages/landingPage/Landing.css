@@ -1,6 +1,7 @@
 header {
   margin-top: 0px;
   background-color: #ddd;
+  /* background-color: #eee; */
 }
 
 header .row {
@@ -129,4 +130,18 @@ header img {
   100% {
     transform: translateY(-10px);
   }
+}
+
+.more {
+  text-align: center;
+  color: blue;
+}
+
+.pitch {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+  padding: 20px 60px;
 }

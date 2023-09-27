@@ -1,0 +1,19 @@
+.img {
+    height: 250px;
+    width: 150px;
+  }
+  
+  .doctor {
+    margin: 10px;
+  }
+  
+  div.doctors-container {
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  button.button {
+    margin-left: 90px;
+    margin-top: 3px;
+    /* margin: 10px, 0px, 0px, 3px; */
+  }

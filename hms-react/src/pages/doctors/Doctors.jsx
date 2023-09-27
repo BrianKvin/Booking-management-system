@@ -41,20 +41,26 @@ const Doctors = () => {
   };
 
   return (
-    <div className="doctors-container">
-      {doctors.map((doctor) => (
-        <Card className="doctor" style={{ width: "18rem" }} key={doctor.id}>
-          <Card.Img className="img" variant="top" src={"/doctor1"} />
-          <Card.Body>
-            <Card.Title>{doctor.title}</Card.Title>
-            <Card.Text>{doctor.text}</Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
-
-      {/* Button to add a new doctor's card*/}
-      <Button variant="primary" size="sm" onClick={addDoctor} active>
-        Add Service
+    <div>
+      <div className="doctors-container" style={{ display: "flex" }}>
+        {doctors.map((doctor) => (
+          <Card className="doctor" style={{ width: "18rem" }} key={doctor.id}>
+            <Card.Img className="img" variant="top" src={"/doctor1"} />
+            <Card.Body>
+              <Card.Title>{doctor.title}</Card.Title>
+              <Card.Text>{doctor.text}</Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+      <Button
+        className="button"
+        variant="primary"
+        size="sm"
+        onClick={addDoctor}
+        active
+      >
+        Add Doctor
       </Button>
     </div>
   );
