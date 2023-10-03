@@ -4,6 +4,7 @@ import { patientItems } from "./SidebarItems";
 
 const Sidebar = () => {
   const items = patientItems;
+
   return (
     <div className="bg-white sidebar p-2">
       <div className="m-2">

@@ -7,7 +7,7 @@ export const patientItems = [
   },
   {
     id: 2,
-    path: "/home/appointments",
+    path: "/home/booking",
     icon: "bi-book",
     title: "Bookings",
   },

@@ -6,10 +6,6 @@ import HomeNav from "../../components/layout/HomeNav";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 
-// const containerStyle = {
-//   margin: "0",
-// };
-
 const Layout = () => {
   const [toggle, setToggle] = useState(true);
 
@@ -29,9 +25,9 @@ const Layout = () => {
 
         {/* {toggle && <div className="col-2"></div>} */}
 
-        <div className="col">
+        <div className={`col${toggle ? "-10" : "-12"}`}>
           <HomeNav Toggle={Toggle} />
-          <div className="container-fluid">
+          <div className="col">
             <Outlet />
           </div>
         </div>

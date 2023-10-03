@@ -6,10 +6,11 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const { setAuth, setPatients, setPhysios, setServices } = useAuth();
 
   const form = useForm({ defaultValues: { email: "", password: "" } });
 
@@ -25,11 +26,45 @@ const Login = () => {
       const accessToken = res.data.access;
       const refreshToken = res.data.refresh;
       const userId = decoded.user_id;
+      const role = decoded.role;
 
-      setAuth({ userId, accessToken, refreshToken });
-      navigate("/home");
+      if (accessToken) {
+        const result = await axios.get("http://127.0.0.1:8000/api/physio/", {
+          headers: { Authorization: `BEARER ${accessToken}` },
+        });
+
+        const reslt = await axios.get("http://127.0.0.1:8000/api/patient/", {
+          headers: { Authorization: `BEARER ${accessToken}` },
+        });
+
+        const serv = await axios.get("http://127.0.0.1:8000/api/service/", {
+          headers: { Authorization: `BEARER ${accessToken}` },
+        });
+
+        if (role === "patient") {
+          const patient = reslt.data.find(
+            (patient) => patient.user.id === userId
+          );
+
+          setAuth({ userId, role, patient, accessToken, refreshToken });
+        } else {
+          const physio = result.data.find(
+            (physio) => physio.user.id === userId
+          );
+
+          setAuth({ userId, role, physio, accessToken, refreshToken });
+        }
+
+        setPhysios(result.data);
+        setPatients(reslt.data);
+        setServices(serv.data);
+
+        toast.success("Successful");
+        navigate("/home");
+      }
     } catch (error) {
-      console.log(error);
+      console.log(error.response.statusText);
+      toast.error(`${error.response.statusText}`);
     }
   };
 
