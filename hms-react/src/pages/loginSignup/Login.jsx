@@ -1,6 +1,6 @@
 import styles from "./login.module.css";
-import email_icon from "../../assets/email.png";
-import password_icon from "../../assets/password.png";
+import email_icon from "../../assets/images/utilities/email.png";
+import password_icon from "../../assets/images/utilities/password.png";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";

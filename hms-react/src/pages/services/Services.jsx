@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "./Services.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button"; // Import Button from react-bootstrap
-// import image1 from "../../assets/images/istockphoto-1384499192-612x612.jpg";
-// import image2 from "../../assets/images/pexels-photo-7433148.jpeg";
-// import image3 from "../../assets/images/pexels-photo-8313421.webp";
-import pressure from "../../assets/images/services/blood-pressure-monitor-1749577_640.jpg";
-import istock from "../../assets/images/services/istockphoto-1079107724-612x612.webp";
-import istockphoto from "../../assets/images/services/istockphoto-1452736789-612x612.webp";
+import Button from "react-bootstrap/Button";
+import dentalcare from "../../assets/images/services/dental-care-5557438_640.jpg";
+import dentalchechup from "../../assets/images/services/istockphoto-149353790-612x612.webp";
+import dentalhygiene from "../../assets/images/services/kenya-3009299_640.jpg";
 
 const Services = () => {
   // State to manage the list of services
@@ -16,19 +13,19 @@ const Services = () => {
       id: 1,
       title: "Card Title 1",
       text: "Some quick example text for Card 1.",
-      image: "/doctor1",
+      image: dentalcare,
     },
     {
       id: 2,
       title: "Card Title 2",
       text: "Some quick example text for Card 2.",
-      image: "/doctor2",
+      image: dentalchechup,
     },
     {
       id: 3,
       title: "Card Title 3",
       text: "Some quick example text for Card 3.",
-      image: "/doctor3",
+      image: dentalhygiene,
     },
   ]);
 
@@ -51,8 +48,12 @@ const Services = () => {
           <Card className="service" style={{ width: "18rem" }} key={service.id}>
             <Card.Img className="img" variant="top" src={service.image} />
             <Card.Body>
-              <Card.Title>{service.title}</Card.Title>
-              <Card.Text>{service.text}</Card.Text>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         ))}

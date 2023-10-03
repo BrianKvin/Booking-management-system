@@ -1,13 +1,13 @@
-import headerimg from "../../assets/images/headerimg.png";
 import "./Landing.css";
 import Navbar from "../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Footer from "../../components/footer/Footer";
-import pressure from "../../assets/images/services/blood-pressure-monitor-1749577_640.jpg";
-import istock from "../../assets/images/services/istockphoto-1079107724-612x612.webp";
-import istockphoto from "../../assets/images/services/istockphoto-1452736789-612x612.webp";
+import dentist from "../../assets/images/landing-page-images/dentist-2530983_640.jpg";
+import tooth from "../../assets/images/landing-page-images/tooth-replacement-3532980_640.jpg";
+import teeth from "../../assets/images/landing-page-images/teeth-5522650_640.jpg";
+import doctor from "../../assets/images/landing-page-images/young-3009300_640.jpg";
 
 const Landing = () => {
   return (
@@ -15,7 +15,7 @@ const Landing = () => {
       <Navbar />
       <div className="container ">
         <div className="row">
-          <div className="col-md-6 col-lg-6">
+          <div className="col-md-4 col-lg-6">
             <h5>We Provide All Therapy Solutions</h5>
             <h2>Protect Your Mental and Physical Condition</h2>
             <button>
@@ -23,15 +23,9 @@ const Landing = () => {
             </button>
           </div>
 
-          {/* <div className="col-lg-6 col-md-6">
-            <button>
-              <a href="#">Login</a>
-            </button>
-          </div> */}
-          <div className="col-lg-6 col-md-6">
+          <div className="col-lg-4 col-md-8">
             <div className="header-box">
-              <img src={headerimg} />
-              {/* <FontAwesomeIcon icon={faSquare} /> */}
+              <img src={doctor} />
             </div>
           </div>
         </div>
@@ -41,40 +35,34 @@ const Landing = () => {
         <Row className="pitch">
           <Col>
             <div className="header-box">
-              <img src={pressure} />
-              <h4>Blood Pressure Monitoring</h4>
+              <img src={tooth} />
+              <h4>Tooth Cleaning</h4>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                consequuntur veritatis numquam sunt quasi accusamus, officiis
-                obcaecati delectus et quae culpa voluptatem neque eos quos. Ut
-                voluptates quia repudiandae accusamus, facilis ullam explicabo a
-                nostrum culpa. Vero sed, ad nesciunt eveniet nemo, nobis,
-                blanditiis enim fugiat voluptatibus commodi ipsa laboriosam!
+                Tooth cleaning: Essential for oral health. Removes plaque,
+                prevents cavities, freshens breath, and brightens smiles.
+                Routine care for lasting hygiene.
               </p>
             </div>
           </Col>
           <Col>
             <div className="header-box">
-              <img src={istock} />
-              <h4>Physio Therapy</h4>
+              <img src={teeth} />
+              <h4>Dental Chekup</h4>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
-                enim ipsa, placeat quod, voluptatum, non architecto reiciendis
-                tempora vero repellat exercitationem! Ab officiis labore soluta,
-                ad ipsum placeat quod quia fuga delectus magni, consectetur
-                nobis aliquam modi! Eos, iusto dolor?
+                Dental checkup: Regular exams ensure oral health. Detect issues
+                early, prevent problems, maintain a confident smile. Essential
+                for overall well-being.
               </p>
             </div>
           </Col>
           <Col>
             <div className="header-box">
-              <img src={istockphoto} />
-              <h4>Paediatric Psychotherapy</h4>
+              <img src={dentist} />
+              <h4>Dental X-ray</h4>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt,
-                hic debitis. Reprehenderit culpa numquam ullam ducimus, beatae
-                amet itaque eligendi veniam labore repellendus, ad, minima ipsum
-                impedit nam optio omnis.
+                Dental X-ray: Non-invasive diagnostic tool. Reveals hidden
+                issues, aids in treatment planning. Minimal radiation, maximum
+                benefits for oral health.
               </p>
             </div>
           </Col>
@@ -86,16 +74,13 @@ const Landing = () => {
           <Col>
             <Card style={{ width: "18rem" }}>
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>We Care</Card.Title>
                 <Card.Text>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Consequuntur quasi molestiae illum explicabo nam similique?
-                    Voluptates, magnam dicta assumenda quasi doloribus omnis eos
-                    voluptatibus pariatur aspernatur nostrum, id repellendus?
-                    Pariatur cupiditate dolorum iure quod fuga atque quia
-                    quisquam voluptatibus cum facilis error possimus
-                    reprehenderit voluptatum suscipit harum, esse nobis rerum.
+                    Experience compassionate care at our clinic. Skilled
+                    professionals, state-of-the-art technology, and a welcoming
+                    environment ensure top-notch treatment. Your smile's best
+                    friend.
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -104,15 +89,14 @@ const Landing = () => {
           <Col>
             <Card style={{ width: "18rem" }}>
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Affordable</Card.Title>
                 <Card.Text>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolorem distinctio quidem maxime recusandae nemo beatae
-                    voluptatem pariatur perferendis deleniti numquam? Labore aut
-                    vitae optio dolor perspiciatis eius accusantium at nesciunt
-                    perferendis ratione impedit, aliquid sit cumque odit fugiat
-                    corrupti illo.
+                    At our clinic, we prioritize affordable healthcare. Quality
+                    meets affordability, ensuring accessible treatments without
+                    compromising excellence. Trust us to provide cost-effective
+                    solutions for your dental needs, making oral health
+                    achievable for all.
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -121,16 +105,12 @@ const Landing = () => {
           <Col>
             <Card style={{ width: "18rem" }}>
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Tailor-Made Services</Card.Title>
                 <Card.Text>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quos repellendus nobis quod quidem incidunt! Repellat iusto
-                    maiores autem. Molestiae temporibus magni animi cumque
-                    cupiditate nobis assumenda voluptates officiis dolor
-                    laboriosam, corrupti unde nam dolores reiciendis quisquam
-                    adipisci incidunt aliquam doloremque! Facere aspernatur
-                    iusto illum fugiat?
+                    Our clinic takes pride in tailoring dental care to your
+                    unique needs. From personalized treatment plans to attentive
+                    service, your smile's individuality is our top priority.
                   </p>
                 </Card.Text>
               </Card.Body>

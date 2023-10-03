@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./Doctors.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-// import doctor1 from "../../assets/images/doctor1";
-// import doctor2 from "../../assets/images/doctor2";
-// import doctor3 from "../../assets/images/doctor3";
+import doctor1 from "../../assets/images/doctors/doctor1.jpeg";
+import doctor2 from "../../assets/images/doctors/doctor2.jpeg";
+import doctor3 from "../../assets/images/doctors/doctor3.jpeg";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([
@@ -12,19 +12,19 @@ const Doctors = () => {
       id: 1,
       title: "Doctor Title",
       text: "Doctor Qualification",
-      image: "/doctor1",
+      image: doctor1,
     },
     {
       id: 2,
       title: "Doctor Title 2",
       text: "Doctor Qualification 2.",
-      image: "/doctor2",
+      image: doctor2,
     },
     {
       id: 3,
       title: "Doctor Title 3",
       text: "Doctor qualification 3.",
-      image: "/doctor3",
+      image: doctor3,
     },
   ]);
 
@@ -45,7 +45,7 @@ const Doctors = () => {
       <div className="doctors-container" style={{ display: "flex" }}>
         {doctors.map((doctor) => (
           <Card className="doctor" style={{ width: "18rem" }} key={doctor.id}>
-            <Card.Img className="img" variant="top" src={"/doctor1"} />
+            <Card.Img className="img" variant="top" src={doctor.image} />
             <Card.Body>
               <Card.Title>{doctor.title}</Card.Title>
               <Card.Text>{doctor.text}</Card.Text>
