@@ -1,90 +1,93 @@
-import { Form, Button } from 'react-bootstrap'
-import FormContainer from '../bookingForms/FormContainer'
-
-import { useState } from 'react'
+import { Form, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const TreatmentForm = () => {
+  const { patientId } = useParams();
+  const { auth, services } = useAuth();
+  const navigate = useNavigate();
 
-    const [form, setForm] = useState({});
-    const [errors, setErrors] = useState({});
-    const setField = (field, value) => {
-        setForm({
-            ...form,
-            [field]:value
-        })
+  const form = useForm({
+    defaultValues: {
+      date: "",
+      prescription: "",
+      treatment: "",
+    },
+  });
 
-        if(!!errors[field])
-        setErrors({
-            ...errors,
-            [field]:null
-        })
-    }
+  const { register, handleSubmit } = form;
 
-    const handleSubmit = e => {
-        e.preventDefault()
-    }
+  const onSubmit = (data) => {
+    const treatment = {
+      treatment_date: data.date,
+      patient_id: parseInt(patientId),
+      prescription: data.prescription,
+      physio_id: auth.physio.id,
+      treatment: data.treatment,
+    };
 
+    const postTreatment = async () => {
+      try {
+        await axios.post("http://127.0.0.1:8000/api/treatment/", treatment);
+
+        navigate("/home");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    postTreatment();
+  };
 
   return (
-    <FormContainer>
-        <h2>Book a Session</h2>
-        <Form>
-            <Form.Group controlId='rsrv date'>
-                <Form.Label>Seen Patient On</Form.Label>
-                <Form.Control
-                    type='date'
-                    placeholder='Enter date of birth'
-                    value = {form.dob}
-                    onChange={(e)=> setField('dob', e.target.value)}
-                    isInvalid={!!errors.dob}
-                ></Form.Control>
-                <Form.Control.Feedback type='invalid'>
-                    {errors.dob}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId='gender'>
-                <Form.Label>Session Time</Form.Label>
-                <Form.Select placeholder='Select Gender'>
-                    <option>Select Time</option>
-                    <option value='M'>Morning</option>
-                    <option value='E'>Evening</option>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group controlId='country'>
-                <Form.Label>Service</Form.Label>
-                <Form.Select placeholder='Select a Service'>
-                    <option>Counseling</option>
-                    <option>Therapy</option>
-                    <option>Physiology</option>
-                </Form.Select>
-                <div className='red'>{errors.location}</div>
-            </Form.Group>
-            {/* <Form.Group controlId='seeking'>
-                <Form.Label>Your Choice</Form.Label>
-                <Form.Select type='text' placeholder='Enter Seeking'>
-                    <option>Select a Doctor</option>
-                    <option>Doc 1</option>
-                    <option>Doc 2</option>
-                    <option>Doc 3</option>
-                </Form.Select>
-            </Form.Group> */}
-            <Form.Group controlId='bio'>
-                <Form.Label>Comment</Form.Label>
-                <Form.Control
-                    as='textarea'
-                    rows={2}
-                    type='textarea'
-                    placeholder="Doctor's comment"
-                ></Form.Control>
-            </Form.Group>
-            <Form.Group controlId='submit'>
-                <Button type='submit' onClick={handleSubmit} className='my-2' variant='primary'>
-                    Continue
-                </Button>
-            </Form.Group>
-        </Form>
-    </FormContainer>
-  )
-}
+    <>
+      <h2>Treatment Form</h2>
+      <Form>
+        <Form.Group controlId="date">
+          <Form.Label>Seen Patient On</Form.Label>
+          <Form.Control
+            type="date"
+            placeholder="Enter date of birth"
+            {...register("date")}
+          />
+        </Form.Group>
 
-export default TreatmentForm
+        <Form.Group controlId="treatment">
+          <Form.Label>Treatment</Form.Label>
+          <Form.Select
+            placeholder="Select a treatment"
+            {...register("treatment")}
+          >
+            {services.map((service) => (
+              <option key={service.id} value={service.service}>
+                {service.service}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group controlId="prescription">
+          <Form.Label>Prescription</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Add prescription"
+            {...register("prescription")}
+          ></Form.Control>
+        </Form.Group>
+
+        <Button
+          type="submit"
+          onClick={handleSubmit(onSubmit)}
+          className="my-2"
+          variant="primary"
+        >
+          Continue
+        </Button>
+      </Form>
+    </>
+  );
+};
+
+export default TreatmentForm;
