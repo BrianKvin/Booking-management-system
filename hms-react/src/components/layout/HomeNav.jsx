@@ -40,7 +40,8 @@ const HomeNav = ({ Toggle }) => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Dr. {user.first_name} {user.last_name}
+              {auth.role === "physio" && "Dr."} {user.first_name}{" "}
+              {user.last_name}
             </a>
             <div className="dropdown-menu" aria-labelledby="dropdownId">
               <div className="dropdown-item" href="#">

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const time = {
@@ -12,6 +13,7 @@ const time = {
 
 const DoctorBookings = () => {
   const { auth, bookings } = useAuth();
+  const navigate = useNavigate();
 
   const myBookings = bookings.filter(
     (booking) => booking.physio.user.id === auth.userId
@@ -34,7 +36,10 @@ const DoctorBookings = () => {
       </thead>
       <tbody>
         {reversedBookings.map((bookings) => (
-          <tr key={bookings.id}>
+          <tr
+            key={bookings.id}
+            onClick={() => navigate(`/home/treatment/${bookings.patient.id}`)}
+          >
             <th scope="row">BK-{bookings.id}</th>
             <td>
               {bookings.patient.user.first_name}{" "}

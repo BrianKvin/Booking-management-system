@@ -5,11 +5,12 @@ import Contact from "../pages/contact/Contact";
 import Doctors from "../pages/doctors/Doctors";
 import DoctorDetails from "../pages/doctorDetails/DoctorDetails";
 import Landing from "../pages/landingPage/Landing";
-import TreatmentForm from "../pages/forms/treatmentForm/TreatmentForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/loginSignup/Login";
 import Register from "../pages/register/Register";
 import BookingForm from "../pages/forms/bookingForms/BookingForm";
+import BillingForm from "../pages/forms/billingForm/billingForm";
+import Treatment from "../pages/treatment/Treatment";
 
 const Router = () => {
   return (
@@ -21,9 +22,10 @@ const Router = () => {
           <Route index element={<Home />} />
           <Route path="/home/doctors" element={<Doctors />} />
           <Route path="/home/doctors/:id" element={<DoctorDetails />} />
-          <Route path="/home/treatment" element={<TreatmentForm />} />
+          <Route path="/home/treatment/:patientId" element={<Treatment />} />
           <Route path="/home/booking" element={<BookingForm />} />
-          <Route path="/home/services" element={<TreatmentForm />} />
+          <Route path="/home/billing/:bookingId" element={<BillingForm />} />
+          <Route path="/home/services" element={<Services />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />

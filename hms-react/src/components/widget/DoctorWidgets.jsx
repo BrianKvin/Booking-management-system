@@ -1,10 +1,14 @@
 import useAuth from "../../hooks/useAuth";
 
 const DoctorWidgets = () => {
-  const { patients, physios, bookings, auth, services } = useAuth();
+  const { patients, physios, bookings, auth, services, treatments } = useAuth();
 
   const myBookings = bookings.filter(
     (booking) => booking.physio.user.id === auth.userId
+  );
+
+  const myTreatments = treatments.filter(
+    (treatment) => treatment.physio.user.id === auth.userId
   );
 
   return (
@@ -53,7 +57,7 @@ const DoctorWidgets = () => {
         <div className="col-md-4">
           <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
             <div>
-              <div className="fs-2">230</div>
+              <div className="fs-2">{myTreatments.length}</div>
               <div className="fs-5">Patients seen</div>
             </div>
             <i className="bi bi-h-circle p-3 fs-1"></i>

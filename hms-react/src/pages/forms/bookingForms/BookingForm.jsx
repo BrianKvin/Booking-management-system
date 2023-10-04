@@ -34,11 +34,16 @@ const BookingForm = () => {
 
     const postBooking = async () => {
       try {
-        await axios.post("http://127.0.0.1:8000/api/booking/", booking, {
-          headers: { "Content-Type": "application/json" },
-        });
+        const res = await axios.post(
+          "http://127.0.0.1:8000/api/booking/",
+          booking,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
 
-        navigate("/home");
+        const id = res.data.id;
+        navigate(`/home/billing/${id}`);
       } catch (error) {
         console.log(error);
       }
@@ -87,7 +92,6 @@ const BookingForm = () => {
               </option>
             ))}
           </Form.Select>
-          {/* <div className="red">{errors.location}</div> */}
         </Form.Group>
 
         <Form.Group controlId="seeking">

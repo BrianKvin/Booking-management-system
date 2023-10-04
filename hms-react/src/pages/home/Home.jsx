@@ -6,7 +6,7 @@ import DoctorView from "./DoctorView";
 import PatientView from "./PatientView";
 
 const Home = () => {
-  const { auth, setBookings } = useAuth();
+  const { auth, setBookings, setTreatments } = useAuth();
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -21,8 +21,21 @@ const Home = () => {
       }
     };
 
+    const fetchTreatments = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/api/treatment/", {
+          headers: { Authorization: `BEARER ${auth.accessToken}` },
+        });
+
+        setTreatments(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchBookings();
-  }, [auth, setBookings]);
+    fetchTreatments();
+  }, [auth, setBookings, setTreatments]);
 
   return auth.role === "patient" ? <PatientView /> : <DoctorView />;
 };
