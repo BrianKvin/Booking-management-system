@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import Token
+
 from .models import User
 from hms.models import Patient, Physio
 
@@ -40,6 +43,23 @@ class RegistrationSerializer(serializers.ModelSerializer):
             return user
 
         return user
+
+
+class CustomObtainTokenPairSerializer(TokenObtainPairSerializer):
+
+    @classmethod
+    def get_token(cls, user) -> Token:
+        token = super().get_token(user)
+
+        if user.is_patient:
+            token['role'] = 'patient'
+            return token
+
+        elif user.is_physio:
+            token['role'] = 'physio'
+            return token
+
+        return token
 
 
 class UserSerializer(serializers.ModelSerializer):

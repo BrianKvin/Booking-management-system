@@ -30,18 +30,18 @@ class TreatmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Treatment
-        fields = ['id',  'treatment_date', 'patient_id',
+        fields = ['id',  'treatment_date', 'patient_id', 'prescription',
                   'physio_id', 'patient', 'physio', 'treatment']
 
-    def create(self, validated_data):
-        patient_id = validated_data.pop('patient_id')
-        physio_id = validated_data.pop('physio_id')
+    def create(self, request, *args, **kwargs):
+        patient_id = self.initial_data.pop('patient_id')
+        physio_id = self.initial_data.pop('physio_id')
 
-        physio = Physio.objects.create(
-            patient_id=patient_id, physio_id=physio_id, **validated_data
+        treatment = Treatment.objects.create(
+            patient_id=patient_id, physio_id=physio_id, **self.initial_data
         )
 
-        return physio
+        return treatment
 
 
 class ServiceSerializer(serializers.ModelSerializer):
@@ -64,16 +64,16 @@ class BookingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Booking
-        fields = ['id', 'resrv_date', 'resrv_time',
-                  'status', 'patient_id', 'physio_id', 'service_id', 'patient', 'physio', 'service']
+        fields = ['id', 'resrv_date', 'resrv_time', 'payment', 'status',
+                  'patient_id', 'physio_id', 'service_id', 'patient', 'physio', 'service']
 
-    def create(self, validated_data):
-        patient_id = validated_data.pop('patient_id')
-        physio_id = validated_data.pop('physio_id')
-        service_id = validated_data.pop('service_id')
+    def create(self, request, *args, **kwargs):
+        patient_id = self.initial_data.pop('patient_id')
+        physio_id = self.initial_data.pop('physio_id')
+        service_id = self.initial_data.pop('service_id')
 
         booking = Booking.objects.create(
-            patient_id=patient_id, physio_id=physio_id, service_id=service_id, **validated_data
+            patient_id=patient_id, physio_id=physio_id, service_id=service_id, **self.initial_data
         )
 
         return booking

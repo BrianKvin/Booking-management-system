@@ -4,11 +4,9 @@
 # from django.shortcuts import get_object_or_404
 
 from django.shortcuts import render
-from rest_framework import generics, mixins
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, DestroyModelMixin
-
 from .models import Billing, Patient, Physio, Booking, Service, Treatment
 from .serializers import BillingSerializer, PhysioSerializer, PatientSerializer, BookingSerializer, ServiceSerializer, TreatmentSerializer
 
@@ -16,7 +14,7 @@ from .serializers import BillingSerializer, PhysioSerializer, PatientSerializer,
 class PhysiosView(GenericAPIView, ListModelMixin, CreateModelMixin):
     serializer_class = PhysioSerializer
     queryset = Physio.objects.all()
-    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -28,7 +26,7 @@ class PhysiosView(GenericAPIView, ListModelMixin, CreateModelMixin):
 class PhysioDetailView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = PhysioSerializer
     queryset = Physio.objects.all()
-    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         return self.retrieve(request, pk)
@@ -43,7 +41,7 @@ class PhysioDetailView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, Des
 class PatientsView(GenericAPIView, ListModelMixin, CreateModelMixin):
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
-    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -55,6 +53,7 @@ class PatientsView(GenericAPIView, ListModelMixin, CreateModelMixin):
 class PatientDetailView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         return self.retrieve(request, pk)
@@ -69,6 +68,7 @@ class PatientDetailView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, De
 class ServicesView(GenericAPIView, ListModelMixin, CreateModelMixin):
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -80,6 +80,7 @@ class ServicesView(GenericAPIView, ListModelMixin, CreateModelMixin):
 class ServiceDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         return self.retrieve(request, pk)
@@ -94,6 +95,7 @@ class ServiceDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, D
 class BillingsView(GenericAPIView, CreateModelMixin, ListModelMixin):
     serializer_class = BillingSerializer
     queryset = Billing.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -105,6 +107,7 @@ class BillingsView(GenericAPIView, CreateModelMixin, ListModelMixin):
 class BillingDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = BillingSerializer
     queryset = Billing.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         return self.retrieve(request, pk)
@@ -115,7 +118,8 @@ class BillingDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, D
     def delete(self, request, pk):
         return self.destroy(request, pk)
 
-# class BillingsView(APIView):
+
+# class BillingsView(GenericAPIView):
 #     def get(self, request):
 #         bill = Billing.objects.all()
 #         serializer = BillingSerializer(bill, many=True)
@@ -166,6 +170,7 @@ class BillingDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, D
 class BookingsView(GenericAPIView, ListModelMixin, CreateModelMixin):
     serializer_class = BookingSerializer
     queryset = Booking.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -177,20 +182,22 @@ class BookingsView(GenericAPIView, ListModelMixin, CreateModelMixin):
 class BookingDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = BookingSerializer
     queryset = Booking.objects.all()
+    # permission_classes = [IsAuthenticated]
 
-    def get(self, request, pk):
-        return self.retrieve(request, pk)
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
-    def put(self, request, pk):
-        return self.update(request, pk)
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
-    def delete(self, request, pk):
-        return self.destroy(request, pk)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
 
 
 class TreatmentsView(GenericAPIView, ListModelMixin, CreateModelMixin):
     serializer_class = TreatmentSerializer
     queryset = Treatment.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
@@ -202,6 +209,7 @@ class TreatmentsView(GenericAPIView, ListModelMixin, CreateModelMixin):
 class TreatmentDetailsView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
     serializer_class = TreatmentSerializer
     queryset = Treatment.objects.all()
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         return self.retrieve(request, pk)

@@ -5,13 +5,17 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import GenericAPIView
+from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, DestroyModelMixin
 
 from .models import User
-from .serializers import RegistrationSerializer, UserSerializer
+from .serializers import RegistrationSerializer, UserSerializer, CustomObtainTokenPairSerializer
 
 
 # Create your views here.
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomObtainTokenPairSerializer
 
 
 class RegisterUserView(GenericAPIView, CreateModelMixin):
