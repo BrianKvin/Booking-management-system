@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'hms',
     # third-party apps
     'rest_framework',
+    'drf_yasg',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +58,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
 
 ROOT_URLCONF = 'base.urls'
 
@@ -134,6 +145,7 @@ AUTH_USER_MODEL = 'accounts.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'django.contrib.auth.backends.ModelBackend',
     )
 }
 

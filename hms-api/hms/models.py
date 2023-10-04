@@ -55,6 +55,7 @@ class Treatment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     physio = models.ForeignKey(Physio, on_delete=models.CASCADE)
     treatment = models.TextField()
+    prescription = models.TextField()
     treatment_date = models.DateField()
 
     def __str__(self) -> str:
@@ -71,7 +72,7 @@ class Service(models.Model):
 
 class Booking(models.Model):
     TIME_CHOICES = [('one', '8 - 9am'), ('two', '9 - 10am'), ('three', '10 - 11am'),
-                    ('four', '11 - 12pm'), ('five', '12 - 1pm'), ('six', '2 - 3pm'), ('seven', '4 - 5pm')]
+                    ('four', '11 - 12pm'), ('five', '12 - 1pm'), ('six', '2 - 3pm'), ('seven', '3 - 4pm')]
 
     STATUS_CHOICES = (
         ('booked', 'Booked'),
@@ -79,6 +80,7 @@ class Booking(models.Model):
         ('seen', 'Seen')
     )
 
+    payment = models.BooleanField(default=True)
     physio = models.ForeignKey(Physio, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)

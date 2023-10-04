@@ -16,7 +16,8 @@ class PatientAdmin(admin.ModelAdmin):
 
 @admin.register(Treatment)
 class TreatmentAdmin(admin.ModelAdmin):
-    list_display = ['patient', 'physio', 'treatment', 'treatment_date']
+    list_display = ['patient', 'physio',
+                    'treatment', 'prescription', 'treatment_date']
 
 
 @admin.register(Service)
@@ -27,7 +28,7 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ['physio', 'patient', 'service',
-                    'resrv_date', 'resrv_time',  'status']
+                    'resrv_date', 'resrv_time', 'status', 'payment']
 
 
 @admin.register(Billing)
