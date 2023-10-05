@@ -1,17 +1,37 @@
 import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const History = () => {
   const { treatments } = useAuth();
   const { patientId } = useParams();
 
+  const [patient, setPatient] = useState(null);
+
   const myTreatments = treatments.filter(
     (treatment) => treatment.patient_id === parseInt(patientId)
   );
 
+  useEffect(() => {
+    const fetchPatient = async () => {
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:8000/api/patient/${patientId}`
+        );
+
+        setPatient(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPatient();
+  }, [patientId]);
+
   return (
     <table className="table caption-top table-hover">
-      <caption className="text-white fs-4">{`${myTreatments[0].patient.user.first_name} ${myTreatments[0].patient.user.last_name}'s treatment history`}</caption>
+      <caption className="text-white fs-4">{`${patient?.user?.first_name} ${patient?.user?.last_name}'s treatment history`}</caption>
       <thead>
         <tr>
           <th scope="col">#</th>
