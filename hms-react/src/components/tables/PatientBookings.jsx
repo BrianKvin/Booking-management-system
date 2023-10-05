@@ -25,7 +25,6 @@ const PatientBookings = () => {
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Patient</th>
           <th scope="col">Physio</th>
           <th scope="col">Service</th>
           <th scope="col">Date</th>
@@ -37,17 +36,21 @@ const PatientBookings = () => {
         {reversedBookings.map((bookings) => (
           <tr key={bookings.id}>
             <th scope="row">BK-{bookings.id}</th>
-            <td>
-              {bookings.patient.user.first_name}{" "}
-              {bookings.patient.user.last_name}
-            </td>
+
             <td>
               {bookings.physio.user.first_name} {bookings.physio.user.last_name}
             </td>
             <td>{bookings.service.service}</td>
             <td>{bookings.resrv_date}</td>
             <td>{time[`${bookings.resrv_time}`]}</td>
-            <td>{bookings.status}</td>
+            <td
+              style={{
+                backgroundColor:
+                  bookings.status === "booked" ? "aqua" : "green",
+              }}
+            >
+              {bookings.status}
+            </td>
           </tr>
         ))}
       </tbody>

@@ -13,7 +13,7 @@ const DoctorWidgets = () => {
 
   return (
     <>
-      <div className="row g-3 my-2">
+      <div className="row g-3 my-1">
         <div className="col-md-4">
           <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
             <div>

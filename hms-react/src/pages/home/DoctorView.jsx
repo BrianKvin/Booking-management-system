@@ -12,7 +12,7 @@ const DoctorView = () => {
         <DoctorWidgets />
       </div>
 
-      <div className="row px-3">
+      <div className="row px-2">
         <div className="col-9">
           <DoctorBookings />
         </div>
@@ -22,7 +22,7 @@ const DoctorView = () => {
 
           <div className="bg-white">
             <button
-              onClick={() => navigate("/home/service")}
+              onClick={() => navigate("/home/services")}
               type="button"
               className="btn btn-info"
             >

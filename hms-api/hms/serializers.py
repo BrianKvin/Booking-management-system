@@ -67,6 +67,12 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = ['id', 'resrv_date', 'resrv_time', 'payment', 'status',
                   'patient_id', 'physio_id', 'service_id', 'patient', 'physio', 'service']
 
+    def validate_id(self, value):
+        if not isinstance(value, int):
+            raise serializers.ValidationError(
+                "The 'id' field must be a number.")
+        return value
+
     def create(self, request, *args, **kwargs):
         patient_id = self.initial_data.pop('patient_id')
         physio_id = self.initial_data.pop('physio_id')
