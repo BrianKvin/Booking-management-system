@@ -1,7 +1,6 @@
-header {
+/* header {
   margin-top: 0px;
   background-color: #ddd;
-  /* background-color: #eee; */
 }
 
 header .row {
@@ -145,4 +144,31 @@ header img {
   background-color: #eee;
   padding: 20px 60px;
   
+} */
+
+
+.containerfluid{
+  background-color: #D8E7D8;
+  color: #32325C;
+  height: 41rem;
+}
+.containerfluid .h1{
+  font-size: 4rem;
+}
+.containerfluid .button{
+      border-radius: 30px;
+      background-color: #41E096;
+      border: none;
+      font-weight: bolder;
+  
+}
+@media (max-width: 991px) {
+  .containerfluid h1,h2{
+     text-align: center;
+    
+  }
+  .containerfluid .button{
+      display: block;
+      margin:0 auto;
+  }
 }
