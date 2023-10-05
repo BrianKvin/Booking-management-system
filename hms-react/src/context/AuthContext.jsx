@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [treatments, setTreatments] = useState([]);
+  const [bookingId, setBookingId] = useState(null);
 
   return (
     <AuthContext.Provider
@@ -25,6 +26,8 @@ export const AuthProvider = ({ children }) => {
         setBookings,
         treatments,
         setTreatments,
+        bookingId,
+        setBookingId,
       }}
     >
       {children}

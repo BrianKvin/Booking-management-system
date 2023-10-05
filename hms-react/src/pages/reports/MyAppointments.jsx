@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const time = {
@@ -11,12 +10,11 @@ const time = {
   seven: "3 - 4pm",
 };
 
-const DoctorBookings = () => {
-  const { auth, bookings, setBookingId } = useAuth();
-  const navigate = useNavigate();
+const MyAppointments = () => {
+  const { bookings, auth } = useAuth();
 
   const myBookings = bookings.filter(
-    (booking) => booking.physio.user.id === auth.userId
+    (booking) => booking.patient.user.id === auth.userId
   );
 
   const reversedBookings = myBookings.reverse();
@@ -27,7 +25,7 @@ const DoctorBookings = () => {
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Patient</th>
+          <th scope="col">Physio</th>
           <th scope="col">Service</th>
           <th scope="col">Date</th>
           <th scope="col">Time</th>
@@ -36,29 +34,16 @@ const DoctorBookings = () => {
       </thead>
       <tbody>
         {reversedBookings.map((bookings) => (
-          <tr
-            key={bookings.id}
-            onClick={() => {
-              setBookingId(bookings.id);
-              navigate(`/home/treatment/${bookings.patient.id}`);
-            }}
-          >
+          <tr key={bookings.id}>
             <th scope="row">BK-{bookings.id}</th>
+
             <td>
-              {bookings.patient.user.first_name}{" "}
-              {bookings.patient.user.last_name}
+              {bookings.physio.user.first_name} {bookings.physio.user.last_name}
             </td>
             <td>{bookings.service.service}</td>
             <td>{bookings.resrv_date}</td>
             <td>{time[`${bookings.resrv_time}`]}</td>
-            <td
-              style={{
-                backgroundColor:
-                  bookings.status === "booked" ? "aqua" : "green",
-              }}
-            >
-              {bookings.status}
-            </td>
+            <td>{bookings.status}</td>
           </tr>
         ))}
       </tbody>
@@ -66,4 +51,4 @@ const DoctorBookings = () => {
   );
 };
 
-export default DoctorBookings;
+export default MyAppointments;

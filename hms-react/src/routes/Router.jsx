@@ -11,6 +11,8 @@ import Register from "../pages/register/Register";
 import BookingForm from "../pages/forms/bookingForms/BookingForm";
 import BillingForm from "../pages/forms/billingForm/billingForm";
 import Treatment from "../pages/treatment/Treatment";
+import Reports from "../pages/reports/Reports";
+import MyAppointments from "../pages/reports/MyAppointments";
 
 const Router = () => {
   return (
@@ -26,6 +28,9 @@ const Router = () => {
           <Route path="/home/booking" element={<BookingForm />} />
           <Route path="/home/billing/:bookingId" element={<BillingForm />} />
           <Route path="/home/services" element={<Services />} />
+          <Route path="/home/reports" element={<Reports />} />
+
+          <Route path="/home/reports" element={<Reports />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />

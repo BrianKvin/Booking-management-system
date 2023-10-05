@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import { patientItems } from "./SidebarItems";
+import { doctorItems, patientItems } from "./SidebarItems";
+import useAuth from "../../hooks/useAuth";
 
 const Sidebar = () => {
-  const items = patientItems;
+  const { auth } = useAuth();
+  const items = auth.role === "physio" ? doctorItems : patientItems;
 
   return (
     <div className="bg-white sidebar p-2">

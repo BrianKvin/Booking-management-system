@@ -38,12 +38,12 @@ export const doctorItems = [
     icon: "bi-house",
     title: "Home",
   },
-  {
-    id: 2,
-    path: "/home/appointments",
-    icon: "bi-book",
-    title: "Appointments",
-  },
+  // {
+  //   id: 2,
+  //   path: "/home/appointments",
+  //   icon: "bi-book",
+  //   title: "Appointments",
+  // },
   {
     id: 3,
     path: "/home/doctors",
