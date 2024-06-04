@@ -7,7 +7,8 @@ const CustomerReviews = () => {
             <div className="col-12"></div>
             <div className="col-lg-12">
               {" "}
-              <h1>Customer Review</h1>
+              <h1>Directors' Insights
+              </h1>
             </div>
             <div className="col-lg-4 col-12 my-3">
               <div className="card" style={{ width: "20rem" }}>
