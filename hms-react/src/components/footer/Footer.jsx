@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="row ">
             <div className="col-lg-3 col-md-3 col-12">
               <ul>
-                <h5>One Clinic</h5>
+                <h5>Nama Care</h5>
                 <li>
                   <NavLink to="/">about us</NavLink>
                 </li>
@@ -53,7 +53,7 @@ const Footer = () => {
                   <NavLink to="/">All Products</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">Pricing Category</NavLink>
+                  <NavLink to="/">Screening Services</NavLink>
                 </li>
                 <li>
                   <NavLink to="/">Single Services</NavLink>
@@ -68,10 +68,10 @@ const Footer = () => {
               <ul>
                 <h5>Resources</h5>
                 <li>
-                  <NavLink to="/">Dental Chair</NavLink>
+                  <NavLink to="/">Maternal Beds</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">Dental Tools</NavLink>
+                  <NavLink to="/">Home Care</NavLink>
                 </li>
                 <li>
                   <NavLink to="/">Sterilization Equipment</NavLink>
@@ -90,8 +90,8 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-6 col-12">
               <p className="text-secondary">
-                &copy; 2023 OneClinic Limited, All Rights Reserved. | Privacy
-                Policy | Terms
+                &copy; 2023 Nama Care, All Rights Reserved. | Privacy Policy |
+                Terms
               </p>
             </div>
 

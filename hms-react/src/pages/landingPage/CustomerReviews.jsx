@@ -62,7 +62,7 @@ const CustomerReviews = () => {
             <div className="col-lg-4 col-12 my-3">
               <div className="card" style={{ width: "20rem" }}>
                 <div className="card-body">
-                  <h5 className="card-title">Jane Doe</h5>
+                  <h5 className="card-title">Frank Marvin</h5>
                   <p className="card-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Nihil eligendi nemo quod illo dicta et sunt, tempore iure
@@ -73,7 +73,7 @@ const CustomerReviews = () => {
                     culpa. Voluptates quod temporibus dolorem aliquam ducimus,
                     ex adipisci consequuntur molestiae illum.
                   </p>
-                  <h5>I Love Them</h5>
+                  <h5>Equal Access to Care</h5>
                   <h6>
                     <i
                       className="fa fa-star"

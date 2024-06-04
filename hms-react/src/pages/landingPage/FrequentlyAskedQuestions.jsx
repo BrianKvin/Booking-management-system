@@ -31,7 +31,7 @@ const FrequentlyAskedQuestions = () => {
                   className="fa-solid fa-lightbulb"
                   style={{ color: "#FAB005" }}
                 ></i>{" "}
-                How long does your treatment plan take?{" "}
+                How long does your maternal care plan take?{" "}
               </h5>
               <p className="ms-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
@@ -43,7 +43,7 @@ const FrequentlyAskedQuestions = () => {
                   className="fa-solid fa-lightbulb"
                   style={{ color: "#FAB005" }}
                 ></i>{" "}
-                What modes of payment do you accept?{" "}
+                Are your services free?{" "}
               </h5>
               <p className="ms-4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -57,7 +57,7 @@ const FrequentlyAskedQuestions = () => {
                   className="fa-solid fa-lightbulb"
                   style={{ color: "#FAB005" }}
                 ></i>{" "}
-                Can I seek a refund?{" "}
+                Are there any other services?{" "}
               </h5>
               <p className="ms-4">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -70,7 +70,7 @@ const FrequentlyAskedQuestions = () => {
                   className="fa-solid fa-lightbulb"
                   style={{ color: "#FAB005" }}
                 ></i>{" "}
-                Do you provide samples?{" "}
+                Do you provide free support post-maternity?{" "}
               </h5>
               <p className="ms-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,

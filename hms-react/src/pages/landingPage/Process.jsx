@@ -1,52 +1,58 @@
-import dentalcare from "../../assets/images/services/dental-care-5557438_640.jpg";
-import dentalchechup from "../../assets/images/services/istockphoto-149353790-612x612.webp";
-import dentalhygiene from "../../assets/images/services/kenya-3009299_640.jpg";
-import clean from "../../assets/images/services/photo-1609840114035-3c981b782dfe.avif";
-import healthy from "../../assets/images/services/photo-1620775997990-ee3c25938b4c.avif";
-import awesome from "../../assets/images/services/photo-1629909613654-28e377c37b09.avif";
+// import dentalcare from "../../assets/images/services/dental-care-5557438_640.jpg";
+// import dentalchechup from "../../assets/images/services/istockphoto-149353790-612x612.webp";
+// import dentalhygiene from "../../assets/images/services/kenya-3009299_640.jpg";
+// import clean from "../../assets/images/services/photo-1609840114035-3c981b782dfe.avif";
+// import healthy from "../../assets/images/services/photo-1620775997990-ee3c25938b4c.avif";
+// import awesome from "../../assets/images/services/photo-1629909613654-28e377c37b09.avif";
 
 const services = [
   {
     logo: <i className="fas fa-magic    "></i>,
     id: "1",
-    h1: "General Dental Hiegiene",
-    p: "Choose from 10+ types of dental care services we provide.",
-    img: dentalcare,
+    h1: "General Maternal Care",
+    p: "CWe provide every basic services.",
+    // img: dentalcare,
+    img: "public/1.jpeg",
   },
   {
     logo: <i className="fas fa-box    "></i>,
     id: "2",
     h1: "No Children Left Behind",
-    p: "Good dental health starts from a young age.",
-    img: dentalchechup,
+    p: "Effective care is crucial for every child.",
+    // img: dentalchechup,
+    img: "public/2.jpeg",
   },
   {
     logo: <i className="fa fa-dollar" aria-hidden="true"></i>,
     id: "3",
-    h1: "Pick a Service",
-    p: "Pick a service that suits your dental needs.",
-    img: dentalhygiene,
+    h1: "All are welcome",
+    p: "Here to serve",
+    // img: dentalhygiene,
+    img: "public/3.jpeg",
   },
   {
     logo: <i className="fa fa-mars-stroke-h" aria-hidden="true"></i>,
     id: "4",
     h1: "Luxury Services",
-    p: "We are more than dental doctors. We provide additional services such as teeth deco.",
-    img: clean,
+    p: "We provide more than maternal services.",
+    // img: clean,
+    img: "public/4.jpeg",
   },
   {
     logo: <i className="fas fa-business-time    "></i>,
     id: "5",
-    h1: "Smile with Confidence",
-    p: "Once you have clean healthy teeth, you can start your days with confidence.",
-    img: healthy,
+    h1: "Deliver with Confidence",
+    p: "Once you talk to us, you can start your motherhood with confidence.",
+    // img: healthy,
+    img: "public/5.jpeg",
   },
   {
     logo: <i className="fa fa-plane" aria-hidden="true"></i>,
     id: "6",
     h1: "We Utilize Modern Equipment",
     p: "This is to give you confidence in the quality of our services, which guarantee value.",
-    img: awesome,
+    // img: awesome,
+    img: "public/landing.jpeg",
   },
 ];
 

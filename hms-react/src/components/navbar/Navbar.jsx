@@ -1,26 +1,19 @@
-// import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPhone } from "@fortawesome/free-solid-svg-icons";
-// import { faSearch } from "@fortawesome/free-solid-svg-icons";
-// import { NavLink } from "react-router-dom";
-
-// // import logo from '../../assets/one-medical.svg'
-// import "./Navbar.css";
-
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-light px-0">
+    <nav className="navbar navbar-expand-lg bg-light px-4">
       <div className="container-fluid ">
         <Link className="navbar-brand" to="/">
           {" "}
-          <b> OneClinic </b>{" "}
+          <img
+            src="./logo.jpg"
+            alt="Nama Care Logo"
+            style={{ height: "100px", width: "100px" }}
+            className="h-8 mr-3"
+          />
+          {/* <b> Nama Care </b>{" "} */}
         </Link>
         <button
           className="navbar-toggler"
@@ -48,7 +41,8 @@ const Header = () => {
               >
                 Who We Are
               </Link>
-              <ul className="dropdown-menu">
+
+              {/* <ul className="dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="custom-packaging">
                     About Us
@@ -79,7 +73,7 @@ const Header = () => {
                     Contact Us
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li className="nav-item dropdown">
               <Link
@@ -89,9 +83,9 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dental Services
+                Our Partners
               </Link>
-              <ul className="dropdown-menu">
+              {/* <ul className="dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="/">
                     General Dental Care
@@ -120,7 +114,7 @@ const Header = () => {
                     Something else here
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li className="nav-item dropdown">
               <Link
@@ -130,9 +124,9 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Samples
+                Members
               </Link>
-              <ul className="dropdown-menu">
+              {/* <ul className="dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="/">
                     Structural Samples
@@ -161,9 +155,9 @@ const Header = () => {
                     Explore All Samples
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
                 to="/"
@@ -228,7 +222,7 @@ const Header = () => {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
@@ -237,9 +231,9 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Our Products
+                Our Services
               </Link>
-              <ul className="dropdown-menu">
+              {/* <ul className="dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="/">
                     Tooth Refiling
@@ -270,7 +264,7 @@ const Header = () => {
                     View All Clients
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li>
               {" "}
@@ -282,51 +276,13 @@ const Header = () => {
           <Link>
             <Link to="/login">
               <button className="btn btn-primary" onClick={() => {}}>
-                Login
+                Book an Appointment
               </button>
             </Link>
           </Link>
         </div>
       </div>
     </nav>
-
-    // <Navbar expand="lg" className="bg-body-tertiary">
-    //   <Container>
-    //     <Navbar.Brand href="#home">
-    //       {/* <img src={logo} alt="logo" /> */}
-    //     </Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //       <Nav className="me-auto">
-    //         <Nav.Link className="active">OneClinic</Nav.Link>
-    //         <NavDropdown title="Doctors" id="basic-nav-dropdown">
-    //           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-    //         </NavDropdown>
-    //         <NavDropdown title="Services" id="basic-nav-dropdown">
-    //           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-    //         </NavDropdown>
-    //         <NavDropdown title="Blog" id="basic-nav-dropdown">
-    //           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-    //         </NavDropdown>
-    //         <Nav.Link>Contact us</Nav.Link>
-    //         <Nav.Link>
-    //           {" "}
-    //           <FontAwesomeIcon icon={faSearch} />
-    //         </Nav.Link>
-    //         <Nav.Link>
-    //           <FontAwesomeIcon icon={faPhone} className="phone" />
-    //           (+01) 999 888 777
-    //         </Nav.Link>
-    //         <Nav.Link>
-    //           <NavLink to="/login">
-    //             <button onClick={() => {}}>Login</button>
-    //           </NavLink>
-    //         </Nav.Link>
-    //         {/* <NavLink to='/loginSignup'>Login</NavLink> */}
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
   );
 };
 
